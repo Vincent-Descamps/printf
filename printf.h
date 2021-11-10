@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:13:40 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/10 16:09:34 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:28:45 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 int		ft_check(char format, va_list ap);
 int		va_char_c(char c);
 int		va_str_s(char *str);
+int		va_int_i(int i);
 
 #endif
