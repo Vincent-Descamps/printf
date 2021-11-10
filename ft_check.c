@@ -1,47 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 16:24:42 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/10 16:07:02 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/10 15:27:43 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/10 16:06:05 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_check(char format, va_list ap)
 {
-	char	*str;
-	int		i;
+	char	c;
+	char	*s;
 	int		j;
-	va_list	ap;
 
-	i = 0;
 	j = 0;
-	va_start(ap, format);
-	while (format[i])
-	{
-		if (format[i] != '%')
-		{
-			write(1, &format[i], 1);
-			j++;
-		}
-		if (format[i] == '%')
-		{
-			i++;
-			j += ft_check(format[i], ap);
-		}
-		i++;
-	}
-	va_end(ap);
-	return (j);
-}
-
-int	main(void)
-{
-	ft_printf("blabal %s", "bjkbkjbk");
+	if (format == 'c')
+		return (va_char(va_arg(ap, int)));
+	else if (format == 's')
+		return (va_str(va_arg(ap, char *)));
 	return (0);
 }

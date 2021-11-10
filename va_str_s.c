@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   va_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 16:24:42 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/10 16:07:02 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/10 11:45:31 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/10 16:04:42 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_printf(const char *format, ...)
+int	va_str(char *str)
 {
-	char	*str;
-	int		i;
-	int		j;
-	va_list	ap;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	va_start(ap, format);
-	while (format[i])
+	while (str[i] != '\0')
 	{
-		if (format[i] != '%')
-		{
-			write(1, &format[i], 1);
-			j++;
-		}
-		if (format[i] == '%')
-		{
-			i++;
-			j += ft_check(format[i], ap);
-		}
+		write(1, &str[i], 1);
 		i++;
+		j++;
 	}
-	va_end(ap);
 	return (j);
-}
-
-int	main(void)
-{
-	ft_printf("blabal %s", "bjkbkjbk");
-	return (0);
 }
