@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:59:39 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 17:06:26 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/12 17:31:53 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	ft_varhex_x(int i)
 	base = "123456789abcdef";
 	if (nb > 16)
 	{
-		ft_varhex_x(nb % 16);
 		ft_varhex_x(nb / 16);
+		ft_varhex_x(nb % 16);
 	}
 	if (nb < 16)
 	{
