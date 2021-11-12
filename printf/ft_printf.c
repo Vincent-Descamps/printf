@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:24:42 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 14:27:54 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/12 17:05:05 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("resultat :- %c - %u  - %i - %%", 'c', 4294967295, 0);
+	ft_printf("******************\n");
+	ft_printf("resultat :\n-char: %c\n -unsigned int: %u\n  -int: %i\n -hexa: %x\n -percent: %%\n", 'c', 4294967295, 15, 1457);
+	ft_printf("******************\n");
+	printf("resultat :\n-char: %c\n -unsigned int: %u\n  -int: %i\n -hexa: %x\n -percent: %%\n", 'c', 4294967295, 15, 1457);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 13:13:40 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 14:28:12 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:51:06 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	ft_varstr_s(char *str);
 int	ft_varint_i(int i);
 int	ft_varunsint_u(unsigned int u);
 int	ft_varpercent(char c);
+int	ft_varhex_x(int i);
 
 #endif
