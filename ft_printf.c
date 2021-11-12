@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:24:42 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/10 16:07:02 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/12 14:12:36 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_printf(const char *format, ...)
 {
-	char	*str;
 	int		i;
 	int		j;
 	va_list	ap;
@@ -42,6 +41,6 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("blabal %s", "bjkbkjbk");
+	ft_printf("resultat :- %c - %u  - %i - %%", 'c', 4294967295, 0);
 	return (0);
 }

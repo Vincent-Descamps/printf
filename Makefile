@@ -6,7 +6,7 @@
 #    By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 16:25:41 by vdescamp          #+#    #+#              #
-#    Updated: 2021/11/12 11:07:58 by vdescamp         ###   ########.fr        #
+#    Updated: 2021/11/12 14:15:46 by vdescamp         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRCS = ft_printf.c		\
 		ft_varchar_c.c 	\
 		ft_varstr_s.c 	\
 		ft_varint_i.c 	\
+		ft_varunsint_u.c\
+		ft_varpercent.c \
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

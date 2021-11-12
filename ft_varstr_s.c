@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_varstr_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 15:27:43 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 14:10:36 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/10 11:45:31 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/12 13:18:48 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_check(char format, va_list ap)
+int	ft_varstr_s(char *str)
 {
-	int		j;
+	int	i;
+	int	j;
 
+	i = 0;
 	j = 0;
-	if (format == 'c')
-		return (ft_varchar_c(va_arg(ap, int)));
-	else if (format == 's')
-		return (ft_varstr_s(va_arg(ap, char *)));
-	else if (format == 'i' || format == 'd')
-		return (ft_varint_i(va_arg(ap, int)));
-	else if (format == 'u')
-		return (ft_varunsint_u(va_arg(ap, unsigned int)));
-	else if (format == '%')
-		return (ft_varpercent(va_arg(ap, int)));
-	return (0);
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+		j++;
+	}
+	return (j);
 }

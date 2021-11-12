@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_varint_i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 15:27:43 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 14:10:36 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/10 16:16:02 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/12 13:18:44 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_check(char format, va_list ap)
+static void	ft_putchar(char c)
 {
-	int		j;
+	write(1, &c, 1);
+}
 
+int	ft_varint_i(int i)
+{
+	long int	nb;
+	int			j;
+
+	nb = i;
 	j = 0;
-	if (format == 'c')
-		return (ft_varchar_c(va_arg(ap, int)));
-	else if (format == 's')
-		return (ft_varstr_s(va_arg(ap, char *)));
-	else if (format == 'i' || format == 'd')
-		return (ft_varint_i(va_arg(ap, int)));
-	else if (format == 'u')
-		return (ft_varunsint_u(va_arg(ap, unsigned int)));
-	else if (format == '%')
-		return (ft_varpercent(va_arg(ap, int)));
-	return (0);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb >= 10)
+	{
+		ft_varint_i(nb / 10);
+		ft_varint_i(nb % 10);
+	}
+	if (nb < 10)
+	{
+		nb = (nb % 10);
+		nb = nb + '0';
+		ft_putchar(nb);
+		j++;
+	}
+	return (j);
 }
