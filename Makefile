@@ -6,16 +6,23 @@
 #    By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 16:25:41 by vdescamp          #+#    #+#              #
-#    Updated: 2021/11/10 11:44:37 by vdescamp         ###   ########.fr        #
+#    Updated: 2021/11/12 11:07:58 by vdescamp         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
+SRCS = ft_printf.c		\
+		ft_check.c 		\
+		ft_varchar_c.c 	\
+		ft_varstr_s.c 	\
+		ft_varint_i.c 	\
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-
+OBJS = ${SRCS:.c=.o}
 
 .c.o:
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}

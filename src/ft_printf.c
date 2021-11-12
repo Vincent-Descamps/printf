@@ -1,27 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 13:13:40 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 11:04:12 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/05 16:24:42 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/12 12:26:13 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_printf(const char *format, ...)
+{
+	int		i;
+	int		j;
+	va_list	ap;
 
-int	ft_printf(const char *format, ...);
-int	ft_check(char format, va_list ap);
-int	ft_varchar_c(char c);
-int	ft_varstr_s(char *str);
-int	ft_varint_i(int i);
+	i = 0;
+	j = 0;
+	va_start(ap, format);
+	while (format[i])
+	{
+		if (format[i] != '%')
+		{
+			write(1, &format[i], 1);
+			j++;
+		}
+		if (format[i] == '%')
+		{
+			i++;
+			j += ft_check(format[i], ap);
+		}
+		i++;
+	}
+	va_end(ap);
+	return (j);
+}
 
-#endif
+int	main(void)
+{
+	ft_printf("resultat :-  %i  -", 2147);
+	return (0);
+}

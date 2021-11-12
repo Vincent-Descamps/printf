@@ -1,27 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_varint_i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 13:13:40 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 11:04:12 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/10 16:16:02 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/12 12:29:12 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+static void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
-int	ft_printf(const char *format, ...);
-int	ft_check(char format, va_list ap);
-int	ft_varchar_c(char c);
-int	ft_varstr_s(char *str);
-int	ft_varint_i(int i);
+int	ft_varint_i(int i)
+{
+	long int	nb;
+	int			j;
 
-#endif
+	nb = i;
+	j = 0;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb >= 10)
+	{
+		ft_varint_i(nb / 10);
+		ft_varint_i(nb % 10);
+	}
+	if (nb < 10)
+	{
+		nb = (nb % 10);
+		nb = nb + '0';
+		ft_putchar(nb);
+		j++;
+	}
+	return (j);
+}

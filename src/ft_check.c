@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 13:13:40 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 11:04:12 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/10 15:27:43 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/12 12:16:05 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
+int	ft_check(char format, va_list ap)
+{
+	int		j;
 
-int	ft_printf(const char *format, ...);
-int	ft_check(char format, va_list ap);
-int	ft_varchar_c(char c);
-int	ft_varstr_s(char *str);
-int	ft_varint_i(int i);
-
-#endif
+	j = 0;
+	if (format == 'c')
+		return (ft_varchar_c(va_arg(ap, int)));
+	else if (format == 's')
+		return (ft_varstr_s(va_arg(ap, char *)));
+	else if (format == 'i' || format == 'd')
+		return (ft_varint_i(va_arg(ap, int)));
+	return (0);
+}
