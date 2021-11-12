@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:27:43 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 14:28:12 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/12 15:50:27 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	ft_check(char format, va_list ap)
 		return (ft_varunsint_u(va_arg(ap, unsigned int)));
 	else if (format == '%')
 		return (ft_varpercent(va_arg(ap, int)));
+	else if (format == 'x')
+		return (ft_varhex_x(va_arg(ap, int)));
 	return (0);
 }
