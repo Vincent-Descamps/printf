@@ -6,24 +6,38 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:45:31 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 14:28:12 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:11:06 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_varstr_s(char *str)
+static void	ft_putstr(char *str)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
 		i++;
-		j++;
 	}
-	return (j);
+}
+
+int	ft_varstr_s(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

@@ -6,11 +6,11 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:04:26 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/12 14:28:00 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/15 14:22:42 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static void	ft_putchar(char c)
 {
@@ -22,7 +22,7 @@ int	ft_varpercent(char c)
 	int	j;
 
 	j = 0;
-	ft_putchar('%');
+	ft_putchar(c);
 	j++;
 	return (j);
 }
