@@ -1,43 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_varstr_s.c                                      :+:      :+:    :+:   */
+/*   ft_varunsint_u.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 11:45:31 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/15 15:11:06 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/12 13:16:01 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/16 08:49:13 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putstr(char *str)
+static void	ft_putchar(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+	write(1, &c, 1);
 }
 
-int	ft_varstr_s(char *str)
+int	ft_unsint_u(unsigned int u)
 {
-	int	i;
+	int	j;
 
-	i = 0;
-	if (str == NULL)
-	{
-		ft_putstr("(null)");
-		return (6);
-	}
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	j = 0;
+	if (u >= 10)
+		j += ft_unsint_u(u / 10);
+	u = (u % 10) + '0';
+	ft_putchar(u);
+	j++;
+	return (j);
 }

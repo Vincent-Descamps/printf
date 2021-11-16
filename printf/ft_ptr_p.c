@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 13:26:38 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/15 14:41:23 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/16 08:48:38 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_print_ptr(uintptr_t nb)
 	}
 }
 
-int	ft_varptr_p(unsigned long long ptr)
+int	ft_ptr_p(unsigned long long ptr)
 {
 	int	j;
 

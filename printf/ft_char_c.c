@@ -6,13 +6,13 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:43:20 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/15 14:17:31 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/16 08:46:29 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_varchar_c(char c)
+int	ft_char_c(char c)
 {
 	int	j;
 

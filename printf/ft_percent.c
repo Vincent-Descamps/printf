@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_varhex_x.c                                      :+:      :+:    :+:   */
+/*   ft_varpercent.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 14:59:39 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/15 19:56:49 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/12 14:04:26 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/16 08:47:45 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_varhex_x(char format, unsigned int i)
+static void	ft_putchar(char c)
 {
-	char		*base;
-	int			j;
+	write(1, &c, 1);
+}
+
+int	ft_percent(char c)
+{
+	int	j;
 
 	j = 0;
-	if (format == 'x')
-		base = "0123456789abcdef";
-	else
-		base = "0123456789ABCDEF";
-	if (i >= 16)
-	{
-		j += ft_varhex_x(format, i / 16);
-		j += ft_varhex_x(format, i % 16);
-	}
-	if (i < 16)
-		j += write(1, &base[i], 1);
+	ft_putchar(c);
+	j++;
 	return (j);
 }

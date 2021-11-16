@@ -6,7 +6,7 @@
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:16:02 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/15 18:49:37 by vdescamp         ###   ########.fr       */
+/*   Updated: 2021/11/16 08:47:37 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	ft_varint_i(int i)
+int	ft_int_i(int i)
 {
 	long int	nb;
 	int			j;
@@ -32,8 +32,8 @@ int	ft_varint_i(int i)
 	}
 	if (nb >= 10)
 	{
-		j += ft_varint_i(nb / 10);
-		j += ft_varint_i(nb % 10);
+		j += ft_int_i(nb / 10);
+		j += ft_int_i(nb % 10);
 	}
 	if (nb < 10)
 	{

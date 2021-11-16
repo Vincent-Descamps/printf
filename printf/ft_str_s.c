@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_varpercent.c                                    :+:      :+:    :+:   */
+/*   ft_varstr_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 14:04:26 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/15 14:22:42 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/10 11:45:31 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/16 08:48:52 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putchar(char c)
+static void	ft_putstr(char *str)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
 
-int	ft_varpercent(char c)
+int	ft_str_s(char *str)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	ft_putchar(c);
-	j++;
-	return (j);
+	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

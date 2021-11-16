@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_varunsint_u.c                                   :+:      :+:    :+:   */
+/*   ft_varhex_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdescamp <vdescamp@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 13:16:01 by vdescamp          #+#    #+#             */
-/*   Updated: 2021/11/15 18:43:08 by vdescamp         ###   ########.fr       */
+/*   Created: 2021/11/12 14:59:39 by vdescamp          #+#    #+#             */
+/*   Updated: 2021/11/16 08:46:52 by vdescamp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putchar(char c)
+int	ft_hex_x(char format, unsigned int i)
 {
-	write(1, &c, 1);
-}
-
-int	ft_varunsint_u(unsigned int u)
-{
-	int	j;
+	char		*base;
+	int			j;
 
 	j = 0;
-	if (u >= 10)
-		j += ft_varunsint_u(u / 10);
-	u = (u % 10) + '0';
-	ft_putchar(u);
-	j++;
+	if (format == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
+	if (i >= 16)
+	{
+		j += ft_hex_x(format, i / 16);
+		j += ft_hex_x(format, i % 16);
+	}
+	if (i < 16)
+		j += write(1, &base[i], 1);
 	return (j);
 }
